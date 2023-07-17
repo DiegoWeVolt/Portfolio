@@ -1,5 +1,5 @@
 "use client"
-
+import { useState } from "react"
 import {
     Button,
     Flex,
@@ -18,10 +18,24 @@ import {
     Grid,
     GridItem,
     Textarea,
+    Form,
 } from "@chakra-ui/react"
 
 export default function Home() {
     const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [mensagem, setMensagem] = useState("")
+    const [telefone, setTelefone] = useState("")
+
+    function sendEmail() {
+        if (name === "" || email === "" || mensagem === "" || telefone === "") {
+            alert("Preencha todos os campos!")
+            return
+        }
+        alert("Teste")
+    }
 
     return (
         <Flex padding="15px" flexDir="column">
@@ -145,29 +159,34 @@ export default function Home() {
                     </ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <FormControl>
-                            <FormLabel>Name</FormLabel>
-                            <Input />
+                        <form onSubmit={sendEmail}>
+                            <FormControl>
+                                <FormLabel>Name</FormLabel>
+                                <Input type="text" onChange={(e) => setName(e.target.value)} value={name} />
 
-                            <FormLabel marginTop="10px">E-mail</FormLabel>
-                            <Input type="email" />
+                                <FormLabel marginTop="10px">E-mail</FormLabel>
+                                <Input type="text" onChange={(e) => setEmail(e.target.value)} value={email} />
 
-                            <FormLabel marginTop="10px">Telefone</FormLabel>
-                            <Input name="telefone" />
+                                <FormLabel marginTop="10px">Telefone</FormLabel>
+                                <Input name="telefone" onChange={(e) => setTelefone(e.target.value)} value={telefone} />
 
-                            <FormLabel marginTop="10px">Mensagem</FormLabel>
-                            <Textarea placeholder="Digite aqui..." />
-                        </FormControl>
+                                <FormLabel marginTop="10px">Mensagem</FormLabel>
+                                <Textarea
+                                    placeholder="Digite aqui..."
+                                    onChange={(e) => setMensagem(e.target.value)}
+                                    value={mensagem}
+                                />
+                            </FormControl>
+                            <Flex marginTop="20px">
+                                <Button colorScheme="gray" mr={3} onClick={onClose}>
+                                    Close
+                                </Button>
+                                <Button variant="ghost" color="green" type="submit">
+                                    Enviar
+                                </Button>
+                            </Flex>
+                        </form>
                     </ModalBody>
-
-                    <ModalFooter>
-                        <Button colorScheme="gray" mr={3} onClick={onClose}>
-                            Close
-                        </Button>
-                        <Button variant="ghost" color="green">
-                            Enviar
-                        </Button>
-                    </ModalFooter>
                 </ModalContent>
             </Modal>
         </Flex>
