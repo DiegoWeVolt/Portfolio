@@ -36,8 +36,8 @@ const Tech = () => {
                         objectFit="contain"
                         w="90px"
                         h="90px"
-                        src="programas-svg/React Native Developers.svg"
-                        alt="React Native Developers.svg"
+                        src="programas-svg/javascript Developers.svg"
+                        alt="javascript Developers.svg"
                     />
                 </Box>
                 <Box w="90px" h="90px">
