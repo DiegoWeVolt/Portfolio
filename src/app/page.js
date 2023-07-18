@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import {
     Button,
     Flex,
@@ -8,7 +8,6 @@ import {
     Modal,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     FormControl,
     ModalBody,
     FormLabel,
@@ -18,8 +17,14 @@ import {
     Grid,
     GridItem,
     Textarea,
-    Form,
 } from "@chakra-ui/react"
+import Header from "./Header"
+import Particles from "react-particles"
+import { loadSlim } from "tsparticles-slim"
+import Cases from "./Cases"
+import About from "./About"
+import Footer from "./Footer"
+import Tech from "./Tech"
 
 export default function Home() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -29,7 +34,8 @@ export default function Home() {
     const [mensagem, setMensagem] = useState("")
     const [telefone, setTelefone] = useState("")
 
-    function sendEmail() {
+    function sendEmail(e) {
+        e.preventDefault()
         if (name === "" || email === "" || mensagem === "" || telefone === "") {
             alert("Preencha todos os campos!")
             return
@@ -37,38 +43,137 @@ export default function Home() {
         alert("Teste")
     }
 
+    const particlesInit = useCallback(async (engine) => {
+        console.log(engine)
+        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        //await loadFull(engine);
+        await loadSlim(engine)
+    }, [])
+
+    const particlesLoaded = useCallback(async (container) => {
+        await console.log(container)
+    }, [])
+
     return (
-        <Flex padding="15px" flexDir="column">
-            <Flex w="full" justify="space-between">
+        <Flex flexDir="column">
+            <Flex padding="30px" w="full" justify="space-between">
                 <Flex align="center">
-                    <Image src="/dahmotta.svg" alt="logo" width="100px" />
-                    <Flex flexDir="column">
-                        <Text ml="15px" fontWeight="bold" fontSize="50px" color="#FFF">
+                    <Image src="/dahmotta.svg" alt="logo" width={{ base: "50px", lg: "75px" }} />
+                    <Flex flexDir="column" ml="15px">
+                        <Text fontWeight="bold" fontSize={{ base: "14px", lg: "30px" }} color="#FFF">
                             DahMotta
                         </Text>
-                        <Text marginTop="-15px" ml="15px" fontWeight="bold" s color="#FFF" fontSize="18px">
+                        <Text fontWeight="bold" color="#FFF" fontSize={{ base: "14px", lg: "18px" }}>
                             Tecnologia da Informação
                         </Text>
                     </Flex>
                 </Flex>
-                <Flex align="center">
+
+                <Flex opacity={0.2} zIndex={-1}>
+                    <Particles
+                        id="tsparticles"
+                        init={particlesInit}
+                        loaded={particlesLoaded}
+                        options={{
+                            background: {
+                                color: {
+                                    value: "transparent",
+                                },
+                            },
+                            fpsLimit: 120,
+                            interactivity: {
+                                events: {
+                                    onClick: {
+                                        enable: true,
+                                        mode: "push",
+                                    },
+                                    onHover: {
+                                        enable: true,
+                                        mode: "repulse",
+                                    },
+                                    resize: true,
+                                },
+                                modes: {
+                                    push: {
+                                        quantity: 4,
+                                    },
+                                    repulse: {
+                                        distance: 200,
+                                        duration: 0.4,
+                                    },
+                                },
+                            },
+                            particles: {
+                                color: {
+                                    value: "#ffffff",
+                                },
+                                links: {
+                                    color: "#ffffff",
+                                    distance: 150,
+                                    enable: true,
+                                    opacity: 0.5,
+                                    width: 1,
+                                },
+                                move: {
+                                    direction: "none",
+                                    enable: true,
+                                    outModes: {
+                                        default: "bounce",
+                                    },
+                                    random: false,
+                                    speed: 6,
+                                    straight: false,
+                                },
+                                number: {
+                                    density: {
+                                        enable: true,
+                                        area: 800,
+                                    },
+                                    value: 80,
+                                },
+                                opacity: {
+                                    value: 0.5,
+                                },
+                                shape: {
+                                    type: "circle",
+                                },
+                                size: {
+                                    value: { min: 1, max: 5 },
+                                },
+                            },
+                            detectRetina: true,
+                        }}
+                    />
+                </Flex>
+
+                <Flex flexDir={{ base: "column", lg: "row" }} align="center">
                     <Button
-                        fontSize="18px"
+                        as={"a"}
+                        height="30px"
+                        href="#servicos"
+                        fontSize={{ base: "14px", lg: "18px" }}
                         leftIcon={<Image src="/right_arrow.svg" alt="contato" width="15px" h="12px" />}
                         variant="unstyled"
+                        color="#FFF">
+                        Serviços
+                    </Button>
+                    <Button
+                        height="30px"
+                        as={"a"}
+                        href="#sobre"
+                        fontSize={{ base: "14px", lg: "18px" }}
+                        leftIcon={<Image src="/right_arrow.svg" alt="contato" width="15px" h="12px" />}
+                        variant="unstyled"
+                        marginX="20px"
                         color="#FFF">
                         Sobre
                     </Button>
+
                     <Button
-                        fontSize="18px"
-                        leftIcon={<Image src="/right_arrow.svg" alt="contato" width="15px" h="12px" />}
-                        marginX="20px"
-                        variant="unstyled"
-                        color="#FFF">
-                        Servicos
-                    </Button>
-                    <Button
-                        fontSize="18px"
+                        height="30px"
+                        fontSize={{ base: "14px", lg: "18px" }}
                         leftIcon={<Image src="/HeadPhone.svg" alt="contato" width="18px" h="15px" />}
                         variant="unstyled"
                         color="#FFF"
@@ -78,9 +183,23 @@ export default function Home() {
                 </Flex>
             </Flex>
 
-            <Flex>
-                <Grid templateColumns="repeat(3, 5fr)" gap={5}>
-                    <GridItem padding="20px" w="100%" h="100%">
+            <Header />
+
+            <Flex padding="30px" flexDir="column">
+                <Text
+                    fontSize={{ base: "20px", lg: "40px" }}
+                    backgroundClip="text"
+                    bgGradient="linear-gradient(125deg,#c90f55 30%,#6c3a8e)"
+                    fontWeight="bold">
+                    Aviso
+                </Text>
+
+                <Text width="50%">Texto vem aqui</Text>
+            </Flex>
+
+            <Flex id="servicos" padding="30px">
+                <Grid templateColumns={{ base: "repeat(1, 5fr)", lg: "repeat(3, 5fr)" }} gap={5}>
+                    <GridItem w="100%" h="100%">
                         <Text color="#FFF" fontSize="50px" fontWeight="bold">
                             Serviços
                         </Text>
@@ -115,7 +234,9 @@ export default function Home() {
                         </Text>
                     </GridItem>
 
-                    <GridItem padding="20px" w="100%" h="100%" />
+                    <GridItem padding="20px" w="100%" h="100%" overflow="hidden" borderRadius="15px">
+                        <Image src="/bgServicos.jpg" alt="bgServicos.jpg" />
+                    </GridItem>
 
                     <GridItem padding="20px" w="100%" h="100%">
                         <Image src="/svgexport-14.svg" width="50px" alt="web" size="20px" />
@@ -143,8 +264,16 @@ export default function Home() {
                 </Grid>
             </Flex>
 
+            <Cases />
+
+            <About />
+
+            <Tech />
+
+            <Footer />
+
             <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalContent>
+                <ModalContent color="black">
                     <ModalHeader>
                         <Flex flexDir="column">
                             <Flex align="center">
@@ -179,7 +308,7 @@ export default function Home() {
                             </FormControl>
                             <Flex marginTop="20px">
                                 <Button colorScheme="gray" mr={3} onClick={onClose}>
-                                    Close
+                                    Fechar
                                 </Button>
                                 <Button variant="ghost" color="green" type="submit">
                                     Enviar
