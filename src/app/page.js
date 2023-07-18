@@ -32,15 +32,15 @@ export default function Home() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [mensagem, setMensagem] = useState("")
-    const [telefone, setTelefone] = useState("")
 
     function sendEmail(e) {
         e.preventDefault()
-        if (name === "" || email === "" || mensagem === "" || telefone === "") {
+        if (name === "" || email === "" || mensagem === "") {
             alert("Preencha todos os campos!")
-            return
+        } else {
+            window.open(`mailto:contato@dahmotta.com?subject=${name} - ${email}&body=${mensagem}`, "_blank")
+            onClose()
         }
-        alert("Teste")
     }
 
     const particlesInit = useCallback(async (engine) => {
@@ -288,33 +288,32 @@ export default function Home() {
                     </ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <form onSubmit={sendEmail}>
-                            <FormControl>
-                                <FormLabel>Name</FormLabel>
-                                <Input type="text" onChange={(e) => setName(e.target.value)} value={name} />
+                        <FormControl>
+                            <FormLabel>Name</FormLabel>
+                            <Input type="text" onChange={(e) => setName(e.target.value)} value={name} />
 
-                                <FormLabel marginTop="10px">E-mail</FormLabel>
-                                <Input type="text" onChange={(e) => setEmail(e.target.value)} value={email} />
+                            <FormLabel marginTop="10px">E-mail</FormLabel>
+                            <Input type="text" onChange={(e) => setEmail(e.target.value)} value={email} />
 
-                                <FormLabel marginTop="10px">Telefone</FormLabel>
-                                <Input name="telefone" onChange={(e) => setTelefone(e.target.value)} value={telefone} />
-
-                                <FormLabel marginTop="10px">Mensagem</FormLabel>
-                                <Textarea
-                                    placeholder="Digite aqui..."
-                                    onChange={(e) => setMensagem(e.target.value)}
-                                    value={mensagem}
-                                />
-                            </FormControl>
-                            <Flex marginTop="20px">
-                                <Button colorScheme="gray" mr={3} onClick={onClose}>
-                                    Fechar
-                                </Button>
-                                <Button variant="ghost" color="green" type="submit">
-                                    Enviar
-                                </Button>
-                            </Flex>
-                        </form>
+                            <FormLabel marginTop="10px">Mensagem</FormLabel>
+                            <Textarea
+                                placeholder="Digite aqui..."
+                                onChange={(e) => setMensagem(e.target.value)}
+                                value={mensagem}
+                            />
+                        </FormControl>
+                        <Flex marginTop="20px">
+                            <Button colorScheme="gray" mr={3} onClick={onClose}>
+                                Fechar
+                            </Button>
+                            <Button
+                                // href={`mailto:contato@dahmotta.com?subject=${name} - ${email}&body=${mensagem}`}
+                                variant="ghost"
+                                color="green"
+                                onClick={sendEmail}>
+                                Enviar
+                            </Button>
+                        </Flex>
                     </ModalBody>
                 </ModalContent>
             </Modal>
