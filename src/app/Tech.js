@@ -12,7 +12,7 @@ const Tech = () => {
                 Tecnologias
             </Text>
 
-            <Flex overflow="hidden" gap={5}>
+            <Flex overflow="hidden" gap={{ base: "2", lg: "5" }} overflowX="scroll">
                 <Box w="90px" h="100px">
                     <Image
                         objectFit="contain"
