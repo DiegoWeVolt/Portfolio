@@ -25,35 +25,25 @@ const Cases = () => {
                 </Box>
 
                 <Box minW="250px" minH="250px">
-                    <Image
-                        borderRadius="15px"
-                        objectFit="cover"
-                        src="DahMotta_Imperium_caixa.jpg"
-                        alt="DahMotta_Imperium_caixa"
-                    />
+                    <Image borderRadius="15px" objectFit="cover" src="caixinha.jpg" alt="caixinha.jpg" />
                 </Box>
                 <Box minW="250px" minH="250px">
                     <Image
                         borderRadius="15px"
                         objectFit="cover"
-                        src="DahMotta_Imperium_caixa.jpg"
-                        alt="DahMotta_Imperium_caixa"
+                        src="Imperium_vs_Timer.png"
+                        alt="Imperium_vs_Timer.png"
                     />
+                </Box>
+                <Box minW="250px" minH="250px">
+                    <Image borderRadius="15px" objectFit="cover" src="pcbdestacadas.jpg" alt="pcbdestacadas.jpg" />
                 </Box>
                 <Box minW="250px" minH="250px">
                     <Image
                         borderRadius="15px"
                         objectFit="cover"
-                        src="DahMotta_Imperium_caixa.jpg"
-                        alt="DahMotta_Imperium_caixa"
-                    />
-                </Box>
-                <Box minW="250px" minH="250px">
-                    <Image
-                        borderRadius="15px"
-                        objectFit="cover"
-                        src="DahMotta_Imperium_caixa.jpg"
-                        alt="DahMotta_Imperium_caixa"
+                        src="Imperium_Android_AddTimer.png"
+                        alt="Imperium_Android_AddTimer.png"
                     />
                 </Box>
             </Flex>

@@ -194,7 +194,35 @@ export default function Home() {
                     Aviso
                 </Text>
 
-                <Text width="50%">Texto vem aqui</Text>
+                <Text color="#FFF">
+                    Caros clientes, <br /> <br />É com grande gratidão e emoção que nos dirigimos a vocês hoje. Durante
+                    mais de 12 anos, tivemos o privilégio de servir vocês como uma empresa de tecnologia comprometida em
+                    oferecer soluções inovadoras e serviços excepcionais. Cada conquista, cada marco alcançado, foi
+                    possível graças ao seu apoio incondicional. Foi a confiança depositada em nós que nos impulsionou a
+                    buscar sempre o melhor e a elevar nossos padrões de excelência. <br />
+                    <br /> Com alegria, olhamos para trás e lembramos de todas as parcerias valiosas que estabelecemos
+                    ao longo dos anos. Foram momentos de colaboração, compartilhamento de conhecimento e crescimento
+                    conjunto. Juntos, alcançamos resultados extraordinários e superamos desafios que nos tornaram mais
+                    fortes. No entanto, todas as jornadas têm seu ponto final, e é com misto de emoções que anunciamos o
+                    encerramento de nossas atividades no final deste mês. A decisão não foi fácil, mas sabemos que é o
+                    caminho certo para direcionar nossos esforços para novos horizontes e oportunidades emocionantes.
+                    <br /> <br />
+                    Gostaríamos de expressar nosso profundo agradecimento a cada um de vocês, nossos estimados clientes.
+                    Foi uma honra servi-los e fazer parte do crescimento de seus negócios. Suas necessidades e
+                    aspirações foram sempre nossa prioridade, e seu apoio constante nos motivou a alcançar nossos
+                    melhores resultados. Embora nossos caminhos possam se separar agora, levaremos com carinho todas as
+                    lembranças e conexões que construímos juntos. O sucesso que compartilhamos é resultado de uma
+                    parceria verdadeira, e temos certeza de que os laços que formamos continuarão a influenciar nossas
+                    vidas e trajetórias futuras.
+                    <br /> <br />
+                    Mais uma vez, obrigado pelo privilégio de tê-los como nossos clientes. Desejamos a todos vocês um
+                    futuro brilhante e repleto de realizações. Mantenham-se inspirados, inovadores e nunca deixem de
+                    acreditar no poder da tecnologia para transformar o mundo.
+                    <br /> <br />
+                    Com sincera gratidão, <br />
+                    <br />
+                    Equipe da DahMotta
+                </Text>
             </Flex>
 
             <Flex id="servicos" padding="30px">
