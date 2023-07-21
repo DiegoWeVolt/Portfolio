@@ -58,7 +58,7 @@ export default function Home() {
 
     return (
         <Flex flexDir="column">
-            <Flex padding="30px" w="full" justify="space-between">
+            <Flex marginX="auto" maxW="1500px" padding="30px" w="full" justify="space-between">
                 <Flex align="center">
                     <Image src="/dahmotta.svg" alt="logo" width={{ base: "50px", lg: "75px" }} />
                     <Flex flexDir="column" ml="15px">
@@ -69,83 +69,6 @@ export default function Home() {
                             Tecnologia da Informação
                         </Text>
                     </Flex>
-                </Flex>
-
-                <Flex opacity={0.2} zIndex={-1}>
-                    <Particles
-                        id="tsparticles"
-                        init={particlesInit}
-                        loaded={particlesLoaded}
-                        options={{
-                            background: {
-                                color: {
-                                    value: "transparent",
-                                },
-                            },
-                            fpsLimit: 120,
-                            interactivity: {
-                                events: {
-                                    onClick: {
-                                        enable: true,
-                                        mode: "push",
-                                    },
-                                    onHover: {
-                                        enable: true,
-                                        mode: "repulse",
-                                    },
-                                    resize: true,
-                                },
-                                modes: {
-                                    push: {
-                                        quantity: 4,
-                                    },
-                                    repulse: {
-                                        distance: 200,
-                                        duration: 0.4,
-                                    },
-                                },
-                            },
-                            particles: {
-                                color: {
-                                    value: "#ffffff",
-                                },
-                                links: {
-                                    color: "#ffffff",
-                                    distance: 150,
-                                    enable: true,
-                                    opacity: 0.5,
-                                    width: 1,
-                                },
-                                move: {
-                                    direction: "none",
-                                    enable: true,
-                                    outModes: {
-                                        default: "bounce",
-                                    },
-                                    random: false,
-                                    speed: 6,
-                                    straight: false,
-                                },
-                                number: {
-                                    density: {
-                                        enable: true,
-                                        area: 800,
-                                    },
-                                    value: 80,
-                                },
-                                opacity: {
-                                    value: 0.5,
-                                },
-                                shape: {
-                                    type: "circle",
-                                },
-                                size: {
-                                    value: { min: 1, max: 5 },
-                                },
-                            },
-                            detectRetina: true,
-                        }}
-                    />
                 </Flex>
 
                 <Flex flexDir={{ base: "column", lg: "row" }} align="center">
@@ -185,12 +108,13 @@ export default function Home() {
 
             <Header />
 
-            <Flex padding="30px" flexDir="column">
+            <Flex marginX="auto" maxW="1500px" padding="30px" flexDir="column">
                 <Text
                     fontSize={{ base: "20px", lg: "40px" }}
                     backgroundClip="text"
                     bgGradient="linear-gradient(125deg,#c90f55 30%,#6c3a8e)"
-                    fontWeight="bold">
+                    fontWeight="bold"
+                    marginBottom="20px">
                     Aviso
                 </Text>
 
@@ -225,10 +149,15 @@ export default function Home() {
                 </Text>
             </Flex>
 
-            <Flex id="servicos" padding="30px">
+            <Flex marginX="auto" maxW="1500px" id="servicos" padding="30px">
                 <Grid templateColumns={{ base: "repeat(1, 5fr)", lg: "repeat(3, 5fr)" }} gap={5}>
                     <GridItem w="100%" h="100%">
-                        <Text color="#FFF" fontSize="50px" fontWeight="bold">
+                        <Text
+                            backgroundClip="text"
+                            bgGradient="linear-gradient(125deg,#c90f55 30%,#6c3a8e)"
+                            fontSize="50px"
+                            fontWeight="bold"
+                            marginBottom="20px">
                             Serviços
                         </Text>
                         <Text textAlign="initial" fontSize="15px" color="#FFF">
@@ -345,6 +274,83 @@ export default function Home() {
                     </ModalBody>
                 </ModalContent>
             </Modal>
+
+            <Flex opacity={0.2} zIndex={-1}>
+                <Particles
+                    id="tsparticles"
+                    init={particlesInit}
+                    loaded={particlesLoaded}
+                    options={{
+                        background: {
+                            color: {
+                                value: "transparent",
+                            },
+                        },
+                        fpsLimit: 120,
+                        interactivity: {
+                            events: {
+                                onClick: {
+                                    enable: true,
+                                    mode: "push",
+                                },
+                                onHover: {
+                                    enable: true,
+                                    mode: "repulse",
+                                },
+                                resize: true,
+                            },
+                            modes: {
+                                push: {
+                                    quantity: 4,
+                                },
+                                repulse: {
+                                    distance: 200,
+                                    duration: 0.4,
+                                },
+                            },
+                        },
+                        particles: {
+                            color: {
+                                value: "#ffffff",
+                            },
+                            links: {
+                                color: "#ffffff",
+                                distance: 150,
+                                enable: true,
+                                opacity: 0.5,
+                                width: 1,
+                            },
+                            move: {
+                                direction: "none",
+                                enable: true,
+                                outModes: {
+                                    default: "bounce",
+                                },
+                                random: false,
+                                speed: 6,
+                                straight: false,
+                            },
+                            number: {
+                                density: {
+                                    enable: true,
+                                    area: 800,
+                                },
+                                value: 80,
+                            },
+                            opacity: {
+                                value: 0.5,
+                            },
+                            shape: {
+                                type: "circle",
+                            },
+                            size: {
+                                value: { min: 1, max: 5 },
+                            },
+                        },
+                        detectRetina: true,
+                    }}
+                />
+            </Flex>
         </Flex>
     )
 }

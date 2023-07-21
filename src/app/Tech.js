@@ -1,8 +1,18 @@
-const { Flex, Text, Grid, GridItem, Image, Box } = require("@chakra-ui/react")
+const { Flex, Text, Image, Box } = require("@chakra-ui/react")
 
 const Tech = () => {
     return (
-        <Flex flexDir="column" bgColor="#101010" color="#FFF" padding="30px" w="full" h="full">
+        <Flex
+            justifyContent="center"
+            flexDir="column"
+            bgColor="transparent"
+            maxW="1500px"
+            color="#FFF"
+            paddingY="30px"
+            paddingX={{ base: "10px", md: "30px" }}
+            w="full"
+            h="full"
+            marginX="auto">
             <Text
                 marginBottom="20px"
                 fontSize={{ base: "20px", lg: "40px" }}
@@ -12,45 +22,8 @@ const Tech = () => {
                 Tecnologias
             </Text>
 
-            <Flex overflow="hidden" gap={{ base: "2", lg: "5" }} overflowX="scroll">
-                <Box w="90px" h="100px">
-                    <Image
-                        objectFit="contain"
-                        w="90px"
-                        h="90px"
-                        src="programas-svg/React_Native_Developers.svg"
-                        alt="React Native Developers.svg"
-                    />
-                </Box>
-                <Box w="90px" h="90px">
-                    <Image
-                        objectFit="contain"
-                        w="90px"
-                        h="90px"
-                        src="programas-svg/java_developers.svg"
-                        alt="java developers.svg"
-                    />
-                </Box>
-                <Box w="90px" h="90px">
-                    <Image
-                        objectFit="contain"
-                        w="90px"
-                        h="90px"
-                        src="programas-svg/Python_developers.svg"
-                        alt="Python_developers"
-                    />
-                </Box>
-
-                <Box w="90px" h="90px">
-                    <Image
-                        objectFit="contain"
-                        w="90px"
-                        h="90px"
-                        src="programas-svg/React_Developers.svg"
-                        alt="React_Developers"
-                    />
-                </Box>
-                <Box w="90px" h="90px">
+            <Flex justifyContent="space-between" overflow="hidden" gap={{ base: "2", lg: "5" }} overflowX="auto">
+                <Box minW="90px" minH="100px">
                     <Image
                         objectFit="contain"
                         w="90px"
@@ -59,7 +32,25 @@ const Tech = () => {
                         alt="javascript Developers.svg"
                     />
                 </Box>
-                <Box w="90px" h="90px">
+                <Box minW="90px" minH="100px">
+                    <Image
+                        objectFit="contain"
+                        w="90px"
+                        h="90px"
+                        src="programas-svg/java_developers.svg"
+                        alt="java developers.svg"
+                    />
+                </Box>
+                <Box minW="90px" minH="100px">
+                    <Image
+                        objectFit="contain"
+                        w="90px"
+                        h="90px"
+                        src="programas-svg/Python_developers.svg"
+                        alt="Python_developers"
+                    />
+                </Box>
+                <Box minW="90px" minH="100px">
                     <Image
                         objectFit="contain"
                         w="90px"
@@ -68,34 +59,26 @@ const Tech = () => {
                         alt="PHP_developers"
                     />
                 </Box>
-                <Box w="90px" h="90px">
+                <Box minW="90px" minH="100px">
                     <Image
                         objectFit="contain"
                         w="90px"
                         h="90px"
-                        src="programas-svg/Flutter_developers.svg"
-                        alt="Flutter_developers"
+                        src="programas-svg/React_Native_Developers.svg"
+                        alt="React Native Developers.svg"
                     />
                 </Box>
-                <Box w="90px" h="90px">
+
+                <Box minW="90px" minH="100px">
                     <Image
                         objectFit="contain"
                         w="90px"
                         h="90px"
-                        src="programas-svg/aws_developers.svg"
-                        alt="aws_developers"
+                        src="programas-svg/React_Developers.svg"
+                        alt="React_Developers"
                     />
                 </Box>
-                <Box w="90px" h="90px">
-                    <Image
-                        objectFit="contain"
-                        w="90px"
-                        h="90px"
-                        src="programas-svg/GoogleClouddevelopers.svg"
-                        alt="GoogleClouddevelopers"
-                    />
-                </Box>
-                <Box w="90px" h="90px">
+                <Box minW="90px" minH="100px">
                     <Image
                         objectFit="contain"
                         w="90px"
@@ -104,22 +87,23 @@ const Tech = () => {
                         alt="nodejs_developers"
                     />
                 </Box>
-                <Box w="90px" h="90px">
+
+                <Box minW="90px" minH="100px">
                     <Image
                         objectFit="contain"
                         w="90px"
                         h="90px"
-                        src="programas-svg/Vuejs_Developers.svg"
-                        alt="Vuejs_Developers"
+                        src="programas-svg/aws_developers.svg"
+                        alt="aws_developers"
                     />
                 </Box>
-                <Box w="90px" h="90px">
+                <Box minW="90px" minH="100px">
                     <Image
                         objectFit="contain"
                         w="90px"
                         h="90px"
-                        src="programas-svg/Angular_full_color_logo.svg.png"
-                        alt="Vuejs_Developers"
+                        src="programas-svg/GoogleClouddevelopers.svg"
+                        alt="GoogleClouddevelopers"
                     />
                 </Box>
             </Flex>
