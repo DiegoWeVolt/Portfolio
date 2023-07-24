@@ -128,8 +128,8 @@ export default function Home() {
                     ao longo dos anos. Foram momentos de colaboração, compartilhamento de conhecimento e crescimento
                     conjunto. Juntos, alcançamos resultados extraordinários e superamos desafios que nos tornaram mais
                     fortes. No entanto, todas as jornadas têm seu ponto final, e é com misto de emoções que anunciamos o
-                    encerramento de nossas atividades no final deste mês. A decisão não foi fácil, mas sabemos que é o
-                    caminho certo para direcionar nossos esforços para novos horizontes e oportunidades emocionantes.
+                    encerramento de nossas atividades. A decisão não foi fácil, mas sabemos que é o caminho certo para
+                    direcionar nossos esforços para novos horizontes e oportunidades emocionantes.
                     <br /> <br />
                     Gostaríamos de expressar nosso profundo agradecimento a cada um de vocês, nossos estimados clientes.
                     Foi uma honra servi-los e fazer parte do crescimento de seus negócios. Suas necessidades e
