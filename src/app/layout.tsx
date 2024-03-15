@@ -5,8 +5,16 @@ import { Providers } from "./providers"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-    title: "DahMotta Tecnologia",
-    description: "DahMotta Tecnologia - Electronics Company",
+    title: "Diego Santos",
+    description: "A Frontend Developer Portfolio",
+    icons: {
+        icon: [
+            {
+                type: "image/svg+xml",
+                url: "/icons/svgexport-13.svg",
+            },
+        ],
+    },
 }
 
 export default function RootLayout({ children }) {

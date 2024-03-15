@@ -1,11 +1,11 @@
-const { Flex, Text, Grid, GridItem, Image, Box } = require("@chakra-ui/react")
+import { Flex, Text, Image, Box } from "@chakra-ui/react"
 
 const Cases = () => {
     return (
         <Flex bgColor="#101010" padding="30px" mt="50px" w="full" h="full">
             <Flex w="full" flexDir="column" marginX="auto" maxW="1500px">
                 <Text
-                    fontSize={{ base: "20px", lg: "40px" }}
+                    fontSize={{ base: "18px", lg: "28px" }}
                     backgroundClip="text"
                     bgGradient="linear-gradient(125deg,#c90f55 30%,#6c3a8e)"
                     fontWeight="bold"
