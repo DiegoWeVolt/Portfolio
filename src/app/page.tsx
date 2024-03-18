@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client"
 import { useState, useCallback } from "react"
 import {
@@ -17,14 +18,17 @@ import {
     Grid,
     GridItem,
     Textarea,
+    Link,
 } from "@chakra-ui/react"
 import Particles from "react-particles"
 import { loadSlim } from "tsparticles-slim"
-import Cases from "./Cases"
-import About from "./About"
+
 import Footer from "./Footer"
 import Technology from "./Technology"
 import React from "react"
+import Header from "./Header"
+import { motion } from "framer-motion"
+import About from "./About"
 
 export default function Home() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -53,87 +57,51 @@ export default function Home() {
 
     return (
         <Flex flexDir="column">
-            <Flex
-                flexDir={{ base: "column", lg: "row" }}
-                align="center"
-                marginX="auto"
-                maxW="1500px"
-                padding="30px"
-                w="full"
-                justifyContent={"flex-end"}>
-                <Button
-                    as={"a"}
-                    height="30px"
-                    href="#Experiences"
-                    fontSize={{ base: "10px", lg: "12px" }}
-                    variant="unstyled"
-                    color="#FFF">
-                    Experiences
-                </Button>
-                <Button
-                    height="30px"
-                    as={"a"}
-                    href="#Technologies"
-                    fontSize={{ base: "10px", lg: "12px" }}
-                    variant="unstyled"
-                    marginX="20px"
-                    color="#FFF">
-                    Technologies
-                </Button>
+            <Header onOpen={onOpen} />
 
-                <Button
-                    as={"a"}
-                    height="30px"
-                    fontSize={{ base: "10px", lg: "12px" }}
-                    variant="unstyled"
-                    color="#FFF"
-                    onClick={onOpen}>
-                    Contact
-                </Button>
+            <Flex minH="100vh" marginX="auto" maxW="1000px" id="About" alignItems="center" justifyItems={"center"}>
+                <motion.animate initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 5 }}>
+                    <Image
+                        src="icons/Profile/MeWithBorder.jpeg"
+                        borderRadius="full"
+                        height="full"
+                        width="ful"
+                        alt="AboutMe"
+                    />
+                </motion.animate>
+
+                <About />
             </Flex>
 
-            <Flex marginX="auto" maxW="1500px" padding="30px" flexDir="column">
-                <Text
-                    fontSize={{ base: "18px", lg: "28px" }}
-                    backgroundClip="text"
-                    color="#FFF "
-                    fontWeight="bold"
-                    marginBottom="20px">
-                    About me
-                </Text>
-
-                <Text color="#FFF">Sobre mim</Text>
-            </Flex>
-
-            <Flex marginX="auto" maxW="1500px" id="Experiences" padding="30px">
-                <Grid>
+            <Flex marginX="auto" maxW="1500px" id="Experiences" minH="100vh" padding="30px" marginTop={40}>
+                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                     <GridItem w="100%" h="100%">
                         <Text
                             backgroundClip="text"
-                            bgGradient="linear-gradient(125deg,#c90f55 30%,#6c3a8e)"
+                            color="#ff6b31 "
+                            as={"a"}
                             fontSize={{ base: "18px", lg: "28px" }}
                             fontWeight="bold"
                             marginBottom="20px">
                             Experience
                         </Text>
 
-                        <Image src="icons/wevoltgreen.svg" w="90px" h="90px" alt="wevolt" />
+                        <Link href="https://www.wevolt.com.au">
+                            <Image src="icons/wevoltgreen.svg" w="90px" h="90px" alt="wevolt" />
+                        </Link>
 
-                        <Text textAlign="initial" fontSize="15px" color="#FFF">
+                        <Text textAlign="initial" as="a" color="#FFF">
                             I collaborate with cross-functional teams to design and develop intuitive, responsive
-                            interfaces for web and mobile applications. My responsibilities include implementing new
-                            features, conducting thorough code reviews, integrating external APIs, and actively
-                            participating in agile development sprints to ensure projects are delivered on time.
+                            interfaces for web and mobile applications.
+                            <br /> My responsibilities include implementing new features, conducting thorough code
+                            reviews, integrating external APIs, and actively participating in agile development sprints
+                            to ensure projects are delivered on time. <br />
                             Additionally, I utilize Storybook to meticulously craft and manage a comprehensive library
                             of UI components, fostering consistency and efficiency throughout the development lifecycle.
                         </Text>
                     </GridItem>
                 </Grid>
             </Flex>
-
-            <Cases />
-
-            <About />
 
             <Technology />
 
@@ -145,11 +113,10 @@ export default function Home() {
                         <Flex flexDir="column">
                             <Flex align="center">
                                 <Image src="/dahmotta.svg" alt="logo" width="50px" marginRight="10px" />
-                                <Text>FALE CONOSCO</Text>
+                                <Text>LET'S TALK?</Text>
                             </Flex>
                             <Text fontSize="16px" marginTop="20px" textAlign="center">
-                                Preencha o seguinte formulário e nos envie suas dúvidas ou sugestões, as quais
-                                responderemos o mais breve possível.
+                                Send me a message and I will reply to you ASAP
                             </Text>
                         </Flex>
                     </ModalHeader>
@@ -174,7 +141,7 @@ export default function Home() {
                                 Fechar
                             </Button>
                             <Button
-                                // href={`mailto:contato@dahmotta.com?subject=${name} - ${email}&body=${mensagem}`}
+                                // href={`mailto:diegosantosmtd@gmail.com?subject=${name} - ${email}&body=${mensagem}`}
                                 variant="ghost"
                                 color="green"
                                 onClick={sendEmail}>
